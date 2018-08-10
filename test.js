@@ -2,11 +2,11 @@
 
 'use strict';
 
-var assert = require('assert'),
-    es = require('event-stream'),
-    gutil = require('gulp-util'),
-    PassThrough = require('stream').PassThrough,
-    gccs = require('./index');
+const assert      = require('assert');
+const es          = require('event-stream');
+const gutil       = require('gulp-util');
+const PassThrough = require('stream').PassThrough;
+const gccs        = require('./index');
 
 
 describe('gulp-gccs', () => {
@@ -18,7 +18,7 @@ describe('gulp-gccs', () => {
     ];
 
     it('should work in buffer mode', (done) => {
-        let idx = 0;
+        var idx = 0;
         const stream = gccs();
 
         stream.on('data', (newFile) => {
@@ -29,7 +29,7 @@ describe('gulp-gccs', () => {
         stream.on('end', () => done());
 
         js_codes.forEach((v) => {
-            let fakeFile = new gutil.File({
+            var fakeFile = new gutil.File({
                 contents: Buffer.from(v[0]),
             });
 
@@ -43,7 +43,7 @@ describe('gulp-gccs', () => {
         const stream = gccs();
 
         stream.on('data', function(file){
-            let { idx } = file;
+            var idx = file.idx;
 
             file.pipe(es.wait((err, data) => {
                 // console.log(String(data).trim());
@@ -62,7 +62,7 @@ describe('gulp-gccs', () => {
             });
             stream.write(fakeFile);
 
-            for(let i=0,l=cnt.length; i<l; i+=10) {
+            for(var i=0,l=cnt.length; i<l; i+=10) {
                 fakeStream.write(Buffer.from(cnt.slice(i, i+10)));
             }
             fakeStream.end();
