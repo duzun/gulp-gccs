@@ -28,13 +28,13 @@ describe('gulp-gccs', () => {
 
         stream.on('end', () => done());
 
-        js_codes.forEach((v) => {
+        for(var i=0, l=js_codes.length; i<l; i++) {
             var fakeFile = new gutil.File({
-                contents: Buffer.from(v[0]),
+                contents: Buffer.from(js_codes[i][0]),
             });
 
             stream.write(fakeFile);
-        });
+        }
 
         stream.end();
     });
@@ -53,12 +53,12 @@ describe('gulp-gccs', () => {
 
         stream.on('end', () => done());
 
-        js_codes.forEach((v, idx) => {
-            const cnt = v[0];
+        for(var idx=0, len=js_codes.length; idx<len; idx++) {
+            const cnt = js_codes[idx][0];
             const fakeStream = new PassThrough();
             const fakeFile = new gutil.File({
                 contents: fakeStream,
-                idx
+                idx: idx
             });
             stream.write(fakeFile);
 
@@ -66,7 +66,7 @@ describe('gulp-gccs', () => {
                 fakeStream.write(Buffer.from(cnt.slice(i, i+10)));
             }
             fakeStream.end();
-        });
+        }
 
         stream.end();
     });
