@@ -1,10 +1,18 @@
-// through2 is a thin wrapper around node transform streams
-const gccs = require('gccs');
-const through = require('through2');
-const PluginError = require('plugin-error');
+
+/**
+ * A gulp plugin to compile JS files using Google's Closure-Compiler service
+ *
+ * @author  Dumitru Uzun (https://DUzun.Me)
+ * @license MIT https://github.com/duzun/gulp-gccs/blob/master/LICENSE
+ * @version  1.0.1
+ */
 
 // Consts
 const PLUGIN_NAME = 'gulp-gccs';
+
+const gccs        = require('gccs');
+const through     = require('through2');
+const PluginError = require('plugin-error');
 
 // Plugin level function(dealing with files)
 function gulpGCCS(opt) {
@@ -49,7 +57,6 @@ function gulpGCCS(opt) {
             cb(null, file);
         }
     });
-
 }
 
 // Exporting the plugin main function
