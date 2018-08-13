@@ -14,7 +14,7 @@ npm i -D gulp-gccs
 
 ## Usage
 
-Here is an example that should get you started:
+Here is an example that should get you started with gulp@4:
 
 ```js
 const gulp   = require('gulp');
