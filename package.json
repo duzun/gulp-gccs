@@ -2,6 +2,7 @@
   "name": "gulp-gccs",
   "version": "1.0.1",
   "description": "Gulp plugin to compile JS files using Google Closure Compiler Service",
+  "reveal": true,
   "main": "dist/index.js",
   "module": "index.js",
   "esnext": "index.js",
