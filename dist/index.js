@@ -1,6 +1,6 @@
 /*
  MIT https://github.com/duzun/gulp-gccs/blob/master/LICENSE
- @version  1.0.2
+ @version  1.0.3
 */
 var PLUGIN_NAME = "gulp-gccs";
 var gccs = require("gccs");
