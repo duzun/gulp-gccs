@@ -4,7 +4,7 @@
  *
  * @author  Dumitru Uzun (https://DUzun.Me)
  * @license MIT https://github.com/duzun/gulp-gccs/blob/master/LICENSE
- * @version  1.0.1
+ * @version  1.0.2
  */
 
 // Consts

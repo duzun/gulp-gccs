@@ -13,12 +13,18 @@ describe('gulp-gccs', () => {
 
     const js_codes = [
         // [ in, out ]
-        ["let it = 'string' + 42 + \"concat\"", 'var it="string42concat";'],
-        [";const x = () => 2*3*5; let val = x();", 'var x=function(){return 30},val=x();'],
+        [
+            "let it = 'string' + 42 + \"concat\"",
+            'var it="string42concat";'
+        ],
+        [
+            ";const x = () => 2*3*5; let val = x();",
+            'var x=function(){return 30},val=x();'
+        ],
     ];
 
     it('should work in buffer mode', (done) => {
-        var idx = 0;
+        let idx = 0;
         const stream = gccs();
 
         stream.on('data', (newFile) => {
@@ -28,8 +34,8 @@ describe('gulp-gccs', () => {
 
         stream.on('end', () => done());
 
-        for(var i=0, l=js_codes.length; i<l; i++) {
-            var fakeFile = new gutil.File({
+        for(let i=0, l=js_codes.length; i<l; i++) {
+            let fakeFile = new gutil.File({
                 contents: Buffer.from(js_codes[i][0]),
             });
 
@@ -42,11 +48,10 @@ describe('gulp-gccs', () => {
     it('should work in stream mode', function(done) {
         const stream = gccs();
 
-        stream.on('data', function(file){
-            var idx = file.idx;
+        stream.on('data', function(file) {
+            let idx = file.idx;
 
             file.pipe(es.wait((err, data) => {
-                // console.log(String(data).trim());
                 assert.equal(js_codes[idx][1], String(data).trim());
             }));
         });
@@ -58,11 +63,11 @@ describe('gulp-gccs', () => {
             const fakeStream = new PassThrough();
             const fakeFile = new gutil.File({
                 contents: fakeStream,
-                idx: idx
             });
+            fakeFile.idx = idx;
             stream.write(fakeFile);
 
-            for(var i=0,l=cnt.length; i<l; i+=10) {
+            for(let i=0,l=cnt.length; i<l; i+=10) {
                 fakeStream.write(Buffer.from(cnt.slice(i, i+10)));
             }
             fakeStream.end();

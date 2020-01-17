@@ -1,7 +1,11 @@
+/*
+ MIT https://github.com/duzun/gulp-gccs/blob/master/LICENSE
+ @version  1.0.2
+*/
+var PLUGIN_NAME = "gulp-gccs";
 var gccs = require("gccs");
 var through = require("through2");
 var PluginError = require("plugin-error");
-var PLUGIN_NAME = "gulp-gccs";
 function gulpGCCS(opt) {
   var options = Object.assign({}, opt || {});
   return through.obj(function(file, enc, cb) {
