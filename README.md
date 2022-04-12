@@ -1,4 +1,4 @@
-# gulp-gccs [![Build Status](https://travis-ci.org/duzun/gulp-gccs.svg?branch=master)](https://travis-ci.org/duzun/gulp-gccs) [![npm version](https://badge.fury.io/js/gulp-gccs.svg)](https://badge.fury.io/js/gulp-gccs)
+# gulp-gccs [![Build Status](https://travis-ci.com/duzun/gulp-gccs.svg?branch=master)](https://travis-ci.com/duzun/gulp-gccs) [![npm version](https://badge.fury.io/js/gulp-gccs.svg)](https://badge.fury.io/js/gulp-gccs)
 
 Gulp plugin to compile JS files using Google Closure Compiler Service.
 
