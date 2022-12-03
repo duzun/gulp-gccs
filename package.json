@@ -16,7 +16,7 @@
     "gulp-jshint": "^2.1",
     "gulp-rename": "^2.0",
     "gulp-util": "^3.0",
-    "mocha": "^6.2.3",
+    "mocha": "^10.1.0",
     "verup": "^1.7"
   },
   "scripts": {
